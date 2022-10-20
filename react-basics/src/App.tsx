@@ -15,12 +15,22 @@ function App() {
       const data = await response.json();
       const firstUser = data.results[0];
 
-
+      setUser(() => {
+        return {
+          name: firstUser.name.first,
+          age: firstUser.dob.age,
+          address: firstUser.location.street.name,
+        };
+      });
+    };
+    getUserData();
   }, []);
 
   return (
     <div className="App">
-      <p>test</p>
+      <p>{user.name}</p>
+      <p>{user.age}</p>
+      <p>{user.address}</p>
     </div>
   );
 }

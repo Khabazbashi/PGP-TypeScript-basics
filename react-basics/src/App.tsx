@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { UserData } from "./types";
 import "./App.css";
 
@@ -9,9 +9,18 @@ function App() {
     address: "",
   });
 
+  useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetch("https://randomuser.me/api/");
+      const data = await response.json();
+      const firstUser = data.results[0];
+
+
+  }, []);
+
   return (
     <div className="App">
-      <p>Test</p>
+      <p>test</p>
     </div>
   );
 }

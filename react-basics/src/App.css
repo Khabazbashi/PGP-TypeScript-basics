@@ -1,3 +1,52 @@
 .App {
-  text-align: center;
+  display: flex;
+  height: 100vh;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); 
+}
+
+.UserCard {
+  background: rgba(0, 0, 0, 0.5);
+  width: 60%;
+  max-width: 60em;
+  padding: 2em;
+}
+
+.Title {
+  color:#f79443;
+}
+
+.Heading {
+  color:  rgb(10,126,140);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+  border-top: 2px black solid;
+}
+
+.FormButton {
+  color: #f79443;
+  width: 7em;
+  padding: 15px 10px;
+  border: 0;
+  margin: 5px 0;
+  background: rgba(0, 0, 0, 0.5);
+
+}
+
+.FormInput{
+  width: 15em;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  color: rgb(245,245,245);
+  padding: 10px;
+  margin: 5px 0;
 }

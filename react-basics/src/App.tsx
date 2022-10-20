@@ -37,14 +37,30 @@ function App() {
   return (
     <div className="App">
       <div className="UserCard">
-        <h1>UserProfile</h1>
+        <h1 className="Title">UserProfile</h1>
         <UserName user={user} />
-        <p>Age: {user.age}</p>
-        <p>Address: {user.address}</p>
-        <button onClick={() => setIsEditable(!isEditable)}>Edit name</button>
-        {isEditable && (
-          <input type="text" value={user.name} onChange={handleChange} />
-        )}
+        <p>
+          <span className="Heading">Age:</span> {user.age}
+        </p>
+        <p>
+          <span className="Heading">Address:</span> {user.address}
+        </p>
+        <div className="FormContainer">
+          <button
+            className="FormButton"
+            onClick={() => setIsEditable(!isEditable)}
+          >
+            EDIT NAME
+          </button>
+          {isEditable && (
+            <input
+              className="FormInput"
+              type="text"
+              value={user.name}
+              onChange={handleChange}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

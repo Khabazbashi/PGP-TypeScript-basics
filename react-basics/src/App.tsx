@@ -4,6 +4,7 @@ import UserName from "./Components/UserName";
 import "./App.css";
 
 function App() {
+  const [isEditable, setIsEditable] = useState<boolean>(false);
   const [user, setUser] = useState<UserData>({
     name: "",
     age: 0,
@@ -35,11 +36,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>UserProfile</h1>
-      <UserName user={user} />
-      <p>{user.age}</p>
-      <p>{user.address}</p>
-      <input type="text" value={user.name} onChange={handleChange} />
+      <div className="UserCard">
+        <h1>UserProfile</h1>
+        <UserName user={user} />
+        <p>Age: {user.age}</p>
+        <p>Address: {user.address}</p>
+        <button onClick={() => setIsEditable(!isEditable)}>Edit name</button>
+        {isEditable && (
+          <input type="text" value={user.name} onChange={handleChange} />
+        )}
+      </div>
     </div>
   );
 }

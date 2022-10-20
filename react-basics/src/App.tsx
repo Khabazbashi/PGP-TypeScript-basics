@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { UserData } from "./types";
+import UserName from "./Components/UserName";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,12 @@ function App() {
     age: 0,
     address: "",
   });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+    setUser({ ...user, name: value });
+  };
 
   useEffect(() => {
     const getUserData = async () => {
@@ -26,15 +33,10 @@ function App() {
     getUserData();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    const value = e.currentTarget.value;
-    setUser({ ...user, name: value });
-  };
-
   return (
     <div className="App">
-      <p>{user.name}</p>
+      <h1>UserProfile</h1>
+      <UserName user={user} />
       <p>{user.age}</p>
       <p>{user.address}</p>
       <input type="text" value={user.name} onChange={handleChange} />
@@ -43,8 +45,3 @@ function App() {
 }
 
 export default App;
-
-// Fetch user from `https://randomuser.me/api/`
-// Display at least the users `address`, `age` and `name`.
-// Make it possible to change the state of the name field through form input
-// For each new load of the application, a new user should appear.

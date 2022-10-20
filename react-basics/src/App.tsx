@@ -26,11 +26,18 @@ function App() {
     getUserData();
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+    setUser({ ...user, name: value });
+  };
+
   return (
     <div className="App">
       <p>{user.name}</p>
       <p>{user.age}</p>
       <p>{user.address}</p>
+      <input type="text" value={user.name} onChange={handleChange} />
     </div>
   );
 }
